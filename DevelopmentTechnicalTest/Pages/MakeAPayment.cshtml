@@ -1,0 +1,32 @@
+﻿@page
+@model MakeAPaymentModel
+@{
+    ViewData["Title"] = "Make a Payment page";
+}
+
+<link rel="stylesheet" href="~/css/make-a-payment.css" />
+
+<div class="text-center">
+    <h1 class="display-4">Make a Payment</h1>
+    <form method="post">
+        <div class="form-input">
+            To:
+            <input asp-for="Payment.To" />
+        </div>
+        <div class="form-input">
+            From:
+            <input asp-for="Payment.From" />
+        </div>
+        <div class="form-input">
+            Amount:
+            <input asp-for="Payment.Amount" />
+        </div>
+        <div class="form-input">
+            Date:
+            <input type="date" asp-for="Payment.DateToSend" />
+        </div>
+        <div class="form-input">
+            <input type="submit" />
+        </div>
+    </form>
+</div>
