@@ -28,8 +28,6 @@ namespace DevelopmentTechnicalTest.Pages
 
         public IActionResult OnPost()
         {
-            var test = "";
-
             return Page();
         }
     }
