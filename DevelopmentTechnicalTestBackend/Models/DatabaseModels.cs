@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DevelopmentTechnicalTestBackend.Models
 {
@@ -33,5 +30,18 @@ namespace DevelopmentTechnicalTestBackend.Models
         public decimal Amount { get; set; }
 
         public DateTime DateToSend { get; set; }
+    }
+
+    public class PaymentService
+    {
+        public Payment Create(Payment payment)
+        {
+            using (var context = new PaymentsContext())
+            {
+                context.Payments.Add(payment);
+                context.SaveChanges();
+            }
+            return payment;
+        }
     }
 }

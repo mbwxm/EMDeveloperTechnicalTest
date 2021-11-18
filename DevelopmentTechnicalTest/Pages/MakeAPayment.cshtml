@@ -8,25 +8,33 @@
 
 <div class="text-center">
     <h1 class="display-4">Make a Payment</h1>
-    <form method="post">
+    <form method="post" id="paymentForm" action="api/payment">
         <div class="form-input">
-            To:
+            <label asp-for="Payment.To">To:</label>
             <input asp-for="Payment.To" />
+            @Html.ValidationMessageFor(p => p.Payment.To)
         </div>
         <div class="form-input">
-            From:
+            <label asp-for="Payment.From"> From:</label>
             <input asp-for="Payment.From" />
+            @Html.ValidationMessageFor(p => p.Payment.From)
         </div>
         <div class="form-input">
-            Amount:
+            <label asp-for="Payment.Amount"> Amount:</label>
             <input asp-for="Payment.Amount" />
+            @Html.ValidationMessageFor(p => p.Payment.Amount)
         </div>
         <div class="form-input">
-            Date:
+            <label asp-for="Payment.DateToSend"> Date:</label>
             <input type="date" asp-for="Payment.DateToSend" />
+            @Html.ValidationMessageFor(p => p.Payment.DateToSend)
         </div>
         <div class="form-input">
             <input type="submit" />
         </div>
     </form>
 </div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
